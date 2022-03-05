@@ -12,10 +12,14 @@ def load_mock_data():
 
 # adds foamStatus to json obj and sets it to uncategorized 
 def add_foam_status_data():
-  foamStatus = "foamStatus"
   for data in MOCK_IMAGES:
-    if foamStatus not in MOCK_IMAGES:
-      data[foamStatus]='uncategorized'
+    if "foamStatus" not in data:
+      data["foamStatus"] = ""
+
+  # foamStatus = "foamStatus"
+  # for data in MOCK_IMAGES:
+  #   if foamStatus not in MOCK_IMAGES:
+  #     data[foamStatus]='uncategorized'
 
 def seed_images():
   mock_data = load_mock_data()
