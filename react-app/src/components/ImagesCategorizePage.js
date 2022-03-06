@@ -8,8 +8,8 @@ import './ImagesStyling.css';
 function ImagesCategorizePage() {
   const { pageNumber } = useParams();
   const dispatch = useDispatch();
-  const images = useSelector(state => state.images)
-
+  const images = useSelector(state => state?.images)
+  // console.log(images)
   useEffect(() => {
     dispatch(getImages(pageNumber))
   }, [dispatch, pageNumber])
@@ -20,9 +20,9 @@ function ImagesCategorizePage() {
     <div>
       Testing 123 
       <div>
-        {Object.values(images).map(image => {
-          return <ImageCard key={image.id} image={image} />
-        })}
+        {Object.values(images).map(image => 
+          <ImageCard key={image.url} image={image} />
+        )}
       </div>
     </div>
   )

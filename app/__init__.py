@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect
 from flask_migrate import Migrate
 
 from .models import db, Image
+from flask_cors import CORS
 from .api.images_routes import images_routes
 
 
@@ -20,6 +21,8 @@ app.config.from_object(Config)
 app.register_blueprint(images_routes, url_prefix='/api/images')
 db.init_app(app)
 Migrate(app, db)
+
+CORS(app)
 
 
 # Since we are deploying with Docker and Flask,

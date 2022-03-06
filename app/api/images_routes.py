@@ -13,10 +13,11 @@ images_routes = Blueprint('image', __name__)
 def paginated_images(pageNumber):
   IMAGES_PER_PAGE = 20
   images = Image.query.paginate(pageNumber, IMAGES_PER_PAGE, False)
-  print(images)
-  print('here!!!!!!!!')
+
+  # print('here!!!!!!!!')
   if images:
     images = dict([(image.id, image.to_dict()) for image in images.items])
+    # print(images)
     return images
   else:
     return {'message' : 'No images found.'}
