@@ -1,0 +1,21 @@
+h1, h3, p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mainImages-div-container {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.foamImage-Main {
+  height: 200px;
+  margin-right: 10px;
+}
+
+/* .foamTitleHeading-Main {
+  
+} */
+
+.startButton-Main {
+  font-family: Arial, Helvetica, sans-serif;
+}

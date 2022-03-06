@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
+import MainPage from './components/mainPage';
 import ImagesCategorizePage from './components/ImagesCategorizePage';
 
 
@@ -11,7 +13,11 @@ function App() {
       <Switch>
         <Route path='/' exact={true} >
           <h1>Foam</h1>
-          <p>Please view the images below and categorize the foam presence.</p>
+          <MainPage />
+        </Route>
+        <Route path='/images/:pageNumber' exact={true} >
+          <h1>Foam</h1>
+          <p>Please view the images below and categorize foam presence.</p>
           <ImagesCategorizePage />
         </Route>
       </Switch>

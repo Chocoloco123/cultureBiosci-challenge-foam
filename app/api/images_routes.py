@@ -9,7 +9,7 @@ images_routes = Blueprint('image', __name__)
 # @images_routes.route('/', methods=['GET'])
 # def get_images():
   
-@images_routes.route('/images/page/<int:pageNumber>', methods=['GET'])
+@images_routes.route('/images/<int:pageNumber>', methods=['GET'])
 def paginated_images(pageNumber):
   IMAGES_PER_PAGE = 20
   images = Image.query.paginate(pageNumber, IMAGES_PER_PAGE, False);
