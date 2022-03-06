@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 
 import MainPage from './components/mainPage';
 import ImagesCategorizePage from './components/ImagesCategorizePage';
