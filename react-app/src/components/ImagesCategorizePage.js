@@ -9,7 +9,7 @@ function ImagesCategorizePage() {
   const { pageNumber } = useParams();
   const dispatch = useDispatch();
   const images = useSelector(state => state?.images)
-  // console.log(images)
+  console.log(images)
   useEffect(() => {
     dispatch(getImages(pageNumber))
   }, [dispatch, pageNumber])
