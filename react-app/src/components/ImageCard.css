@@ -1,4 +1,25 @@
 
 .imageCard-img {
-  height: 200px;
+  height: 250px;
+  margin: 20px;
+}
+
+.imageCard-Div-Cont-Ind {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+  border: solid 1px black;
+  border-radius: 3px;
+}
+
+.foamBtn-Div-Class {
+  display: flex;
+  justify-content: center;
+}
+
+.foamBtn {
+  /* display:flex; */
+  /* width: 50px; */
+  margin: 10px;
 }

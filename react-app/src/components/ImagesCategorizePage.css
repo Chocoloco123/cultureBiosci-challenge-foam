@@ -1,0 +1,4 @@
+.ImageCard-Div-Cont {
+  display: flex;
+  flex-wrap: wrap;
+}

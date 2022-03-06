@@ -11,7 +11,7 @@ images_routes = Blueprint('image', __name__)
   
 @images_routes.route('/<int:pageNumber>', methods=['GET'])
 def paginated_images(pageNumber):
-  IMAGES_PER_PAGE = 20
+  IMAGES_PER_PAGE = 18
   images = Image.query.paginate(pageNumber, IMAGES_PER_PAGE, False)
 
   # print('here!!!!!!!!')

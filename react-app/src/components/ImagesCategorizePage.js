@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getImages } from '../store/images';
 import ImageCard from './ImageCard';
-import './ImagesStyling.css';
+import './ImagesCategorizePage.css';
 
 function ImagesCategorizePage() {
   const { pageNumber } = useParams();
@@ -17,13 +17,12 @@ function ImagesCategorizePage() {
   if (!images) return null;
 
   return (
-    <div>
-      Testing 123 
-      <div>
-        {Object.values(images).map(image => 
-          <ImageCard key={image.url} image={image} />
-        )}
-      </div>
+    <div className='ImageCard-Div-Cont'>
+      {Object.values(images).map(image => 
+        <div key={image.id}>
+          <ImageCard key={image?.url} image={image} />
+        </div>
+      )}
     </div>
   )
 }
