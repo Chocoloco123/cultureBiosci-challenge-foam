@@ -23,7 +23,7 @@ def paginated_images(pageNumber):
   else:
     return {'message' : 'No images found.'}
 
-@images_routes.route('/<int:pageNumber>/<int:id>/update', methods=['GET', 'PATCH'])
+@images_routes.route('/<int:pageNumber>/<int:id>/update', methods=['GET', 'PUT'])
 def update_image_status(pageNumber, id):
   form = FoamStatusForm()
   form['csrf_token'.data] = request.cookies('csrf_token')

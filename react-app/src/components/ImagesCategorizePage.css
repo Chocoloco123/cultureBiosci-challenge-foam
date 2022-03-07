@@ -1,4 +1,14 @@
 .ImageCard-Div-Cont {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+}
+
+.arrowBox-Div {
+  display: flex;
+  justify-content: center;
+}
+
+.arrows {
+  margin: 10px;
 }
