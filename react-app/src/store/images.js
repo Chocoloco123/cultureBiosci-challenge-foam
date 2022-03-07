@@ -20,8 +20,22 @@ export const getImages = (pageNumber) => async(dispatch) => {
   }
 }
 
-export const updateFoamStatus = (image,pageNumber, id) => async(dispatch) => {
-  const res = await fetch(`/api/images/${pageNumber}/${id}/update`, {
+// export const updateFoamStatus = (image,pageNumber, id) => async(dispatch) => {
+//   const res = await fetch(`/api/images/${pageNumber}/${id}/update`, {
+//     method: 'PUT',
+//     headers: {
+//       'Content-Type':'application/json'
+//     },
+//     body: JSON.stringify(image)
+//   });
+
+//   const updatedImageData = await res.json();
+//   dispatch(updateTheFoam(updatedImageData, id));
+//   return updatedImageData;
+// }
+
+export const updateFoamStatus = (image, id) => async(dispatch) => {
+  const res = await fetch(`/api/images/${id}/update`, {
     method: 'PUT',
     headers: {
       'Content-Type':'application/json'
@@ -33,6 +47,7 @@ export const updateFoamStatus = (image,pageNumber, id) => async(dispatch) => {
   dispatch(updateTheFoam(updatedImageData, id));
   return updatedImageData;
 }
+
 
 
 const initial_state = {};

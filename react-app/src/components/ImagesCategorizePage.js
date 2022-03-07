@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getImages } from '../store/images';
+import { getImages, updateFoamStatus } from '../store/images';
 import ImageCard from './ImageCard';
 import './ImagesCategorizePage.css';
 
@@ -13,6 +13,11 @@ function ImagesCategorizePage() {
   useEffect(() => {
     dispatch(getImages(pageNumber))
   }, [dispatch, pageNumber])
+
+  useEffect(() => {
+    // image, pagenumber, id
+    dispatch(updateFoamStatus())
+  })
 
   if (!images) return null;
 
