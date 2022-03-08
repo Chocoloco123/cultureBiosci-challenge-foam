@@ -6,11 +6,15 @@ const getTheImages = (images) => ({
   images
 })
 
-const updateTheFoam = (image, id) => ({
+const updateTheFoam = (image) => ({
   type: UPDATE_FOAM_STATUS,
-  image,
-  id
+  image
 })
+
+// const updateTheFoam = (image) => ({
+//   type: UPDATE_FOAM_STATUS,
+//   image
+// })
 
 export const getImages = (pageNumber) => async(dispatch) => {
   const res = await fetch(`/api/images/${pageNumber}`)
@@ -34,9 +38,25 @@ export const getImages = (pageNumber) => async(dispatch) => {
 //   return updatedImageData;
 // }
 
+// export const updateFoamStatus = (image, id) => async(dispatch) => {
+//   console.log('redux store id: ',id)
+//   const res = await fetch(`/api/images/${id}/update`, {
+//     method: 'PATCH',
+//     headers: {
+//       'Content-Type':'application/json'
+//     },
+//     body: JSON.stringify(image)
+//   });
+
+//   const updatedImageData = await res.json();
+//   dispatch(updateTheFoam(updatedImageData, id));
+//   return updatedImageData;
+// }
+
 export const updateFoamStatus = (image, id) => async(dispatch) => {
+  // console.log('redux store id: ',id)
   const res = await fetch(`/api/images/${id}/update`, {
-    method: 'PUT',
+    method: 'PATCH',
     headers: {
       'Content-Type':'application/json'
     },
@@ -44,9 +64,10 @@ export const updateFoamStatus = (image, id) => async(dispatch) => {
   });
 
   const updatedImageData = await res.json();
-  dispatch(updateTheFoam(updatedImageData, id));
+  dispatch(updateTheFoam(updatedImageData));
   return updatedImageData;
 }
+
 
 
 
@@ -58,14 +79,19 @@ const imagesReducer = (state = initial_state, action) => {
       const newState = action.images;
       return newState;
     }
+    // case UPDATE_FOAM_STATUS : {
+    //   if (!state[action.image]) {
+    //     const newState = {
+    //       ...state, [action.image.id]: action.image
+    //     }
+    //     return newState;
+    //   }
+    //   return state;
+    // }
     case UPDATE_FOAM_STATUS : {
-      if (!state[action.images]) {
-        const newState = {
-          ...state, [action.images.id]: action.images
-        }
-        return newState;
-      }
-      return state;
+      const newState = { ...state }
+      newState[action.image.id] = action.image
+      return newState
     }
     default :
       return state;
