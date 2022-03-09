@@ -8,10 +8,11 @@ from flask_login import current_user
 images_routes = Blueprint('image', __name__)
 
 @images_routes.route('/<int:id>', methods=['GET'])
-def get_one_image():
+def get_one_image(id):
   image = Image.query.get(id)
   if image:
     image = image.to_dict()
+    print('this is backend image:  ',image)
     return image
   else:
     return {'message':'Image not found.'}

@@ -14,20 +14,18 @@ const EditFoamStatus = ({props}) => {
     if (key == id) theImgObj = images[key]
   }
   console.log(theImgObj)
-  const image = useSelector((state) => state?.image[id] ? state?.image[id] : '');
-  console.log('this is image: ',image)
-  const [foamStatus, setFoamStatus] = useState(image?.foamStatus ? image?.foamStatus : '');
+  const [foamStatus, setFoamStatus] = useState(theImgObj?.foamStatus ? theImgObj?.foamStatus : '');
 
   const dispatch = useDispatch();
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(getOneImage(id))
+    dispatch(getOneImage(+id))
   }, [dispatch, id])
 
   useEffect(() => {
-    dispatch(EditFoamStatus(image, id));
-  }, [dispatch, image, id])
+    dispatch(EditFoamStatus(theImgObj, +id));
+  }, [dispatch, theImgObj, id])
 
 
   const handleSelect = async (e) => {
