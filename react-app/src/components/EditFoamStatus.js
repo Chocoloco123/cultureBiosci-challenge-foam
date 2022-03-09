@@ -6,15 +6,16 @@ import { getOneImage, updateFoamStatus } from "../store/images";
 const EditFoamStatus = ({props}) => {
   const { id } = useParams();
   console.log('id hereeeeee: ',id)
-  const images = useSelector((state) => state?.images)
-  console.log(images);
+  const image = useSelector((state) => state?.images)
+  console.log('this is images: ',image);
   let theImgObj = '';
-  for (const key in images) {
+  for (const key in image) {
     console.log(typeof key, typeof id)
-    if (key == id) theImgObj = images[key]
+    if (key === id) theImgObj = image[key]
   }
-  console.log(theImgObj)
+  console.log('this is theImgObj: ',theImgObj, 'hello')
   const [foamStatus, setFoamStatus] = useState(theImgObj?.foamStatus ? theImgObj?.foamStatus : '');
+  
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -38,7 +39,7 @@ const EditFoamStatus = ({props}) => {
     const newImage = await dispatch(updateFoamStatus(updatedImage, id))
 
     if (newImage) {
-      history.back();
+      window.history.back();
     } else if (!history.back()) {
       history.push(`/images/1`)
     }
@@ -47,6 +48,12 @@ const EditFoamStatus = ({props}) => {
 
   return (
     <div>
+      <div>
+        <h3>
+          Image Id:{image.id}
+        </h3>
+        <img src={image?.url} alt='reactor img' className="imageCard-img"></img>
+      </div>
       <form onSubmit={handleSelect}>
         <select required value={foamStatus} onChange={(e) => setFoamStatus(e.target.value)}>
           <option value="Uncategorized">Select Status</option>
