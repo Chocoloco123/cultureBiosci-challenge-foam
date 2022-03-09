@@ -7,11 +7,13 @@ const EditFoamStatus = ({props}) => {
   const { id } = useParams();
   console.log('id hereeeeee: ',id)
   const image = useSelector((state) => state?.images)
-  console.log('this is images: ',image);
-  let theImgObj = '';
+  console.log('this is image ',image);
+  let theImgObj; // if image.id === id ... 
   for (const key in image) {
     console.log(typeof key, typeof id)
+    console.log('imaage at key',image[key])
     if (key === id) theImgObj = image[key]
+    console.log('inside the img obj: ',theImgObj)
   }
   console.log('this is theImgObj: ',theImgObj, 'hello')
   const [foamStatus, setFoamStatus] = useState(theImgObj?.foamStatus ? theImgObj?.foamStatus : '');
@@ -38,11 +40,11 @@ const EditFoamStatus = ({props}) => {
 
     const newImage = await dispatch(updateFoamStatus(updatedImage, id))
 
-    if (newImage) {
-      window.history.back();
-    } else if (!history.back()) {
-      history.push(`/images/1`)
-    }
+    // if (newImage) {
+    //   window.history.back();
+    // } else if (!history.back()) {
+    //   history.push(`/images/1`)
+    // }
     
   }
 
