@@ -24,7 +24,7 @@ const EditFoamStatus = ({props}) => {
   }, [dispatch, id])
 
   useEffect(() => {
-    dispatch(EditFoamStatus(theImgObj, +id));
+    dispatch(updateFoamStatus(theImgObj, +id));
   }, [dispatch, theImgObj, id])
 
 
@@ -38,7 +38,7 @@ const EditFoamStatus = ({props}) => {
     const newImage = await dispatch(updateFoamStatus(updatedImage, id))
 
     if (newImage) {
-      history.back()
+      history.back();
     } else if (!history.back()) {
       history.push(`/images/1`)
     }
