@@ -8,15 +8,16 @@ const EditFoamStatus = ({props}) => {
   console.log('id hereeeeee: ',id)
   const image = useSelector((state) => state?.images)
   console.log('this is image ',image);
-  let theImgObj; // if image.id === id ... 
-  for (const key in image) {
-    console.log(typeof key, typeof id)
-    console.log('imaage at key',image[key])
-    if (key === id) theImgObj = image[key]
-    console.log('inside the img obj: ',theImgObj)
-  }
-  console.log('this is theImgObj: ',theImgObj, 'hello')
-  const [foamStatus, setFoamStatus] = useState(theImgObj?.foamStatus ? theImgObj?.foamStatus : '');
+  // let theImgObj; // if image.id === id ... 
+  // for (const key in image) {
+  //   console.log(typeof key, typeof id)
+  //   console.log('imaage at key',image[key])
+  //   if (key === id) theImgObj = image[key]
+  //   console.log('inside the img obj: ',theImgObj)
+  // }
+  // console.log('this is theImgObj: ',theImgObj, 'hello')
+  const [foamStatus, setFoamStatus] = useState(image?.foamStatus ? image?.foamStatus : '');
+  const [lastModified, setLastModified] = useState(image?.lastModified ? image?.lastModified : '')
   
 
   const dispatch = useDispatch();
@@ -25,19 +26,32 @@ const EditFoamStatus = ({props}) => {
   useEffect(() => {
     dispatch(getOneImage(+id))
   }, [dispatch, id])
+  let currentDate = new Date().toUTCString();
+
+  // useEffect(() => {
+  //   dispatch(updateFoamStatus(image, +id));
+  //   setFoamStatus(image.foamStatus)
+  //   setLastModified(currentDate)
+  
+  // }, [dispatch, image, id, image.foamStatus, currentDate])
 
   useEffect(() => {
-    dispatch(updateFoamStatus(theImgObj, +id));
-  }, [dispatch, theImgObj, id])
+    setFoamStatus(image.foamStatus)
+    setLastModified(currentDate)
+  
+  }, [dispatch, image, image.foamStatus, currentDate])
+  
 
 
   const handleSelect = async (e) => {
     e.preventDefault();
+    
 
     const updatedImage = {
       foamStatus,
+      lastModified
     }
-
+    console.log('updatedImage: ',updatedImage)
     const newImage = await dispatch(updateFoamStatus(updatedImage, id))
 
     // if (newImage) {
