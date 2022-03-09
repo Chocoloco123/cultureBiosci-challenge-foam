@@ -53,7 +53,8 @@ def update_image_status(id):
   # form['csrf_token'.data] = request.cookies('csrf_token')
   image = Image.query.get(id)
   print('image here: ===> ',image.to_dict())
-  # if form.validate_on_submit():
+  # if form.validate_on_submit(): 
+  # ! this validation is causing some kind of error
   if image:
     # image.url = form.data['url']
     image.foamStatus = form.data['foamStatus']
