@@ -34,12 +34,12 @@ const EditFoamStatus = ({props}) => {
   //   setLastModified(currentDate)
   
   // }, [dispatch, image, id, image.foamStatus, currentDate])
-
-  useEffect(() => {
-    setFoamStatus(image.foamStatus)
-    setLastModified(currentDate)
+// ! This may be the problem
+  // useEffect(() => {
+  //   setFoamStatus(image.foamStatus)
+  //   setLastModified(currentDate)
   
-  }, [dispatch, image, image.foamStatus, currentDate])
+  // }, [dispatch, image, image.foamStatus, currentDate])
   
 
 
@@ -48,10 +48,10 @@ const EditFoamStatus = ({props}) => {
     
 
     const updatedImage = {
-      foamStatus,
-      lastModified
+      foamStatus: foamStatus,
+      lastModified: currentDate
     }
-    console.log('updatedImage: ',updatedImage)
+    // console.log('updatedImage: ',updatedImage)
     const newImage = await dispatch(updateFoamStatus(updatedImage, id))
 
     // if (newImage) {

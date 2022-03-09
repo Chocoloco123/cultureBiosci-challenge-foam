@@ -70,7 +70,7 @@ export const getOneImage = (id) => async(dispatch) => {
 export const updateFoamStatus = (image, id) => async(dispatch) => {
   // console.log('redux store id: ',id)
   const res = await fetch(`/api/images/${id}/update`, {
-    method: 'PATCH',
+    method: 'PUT',
     headers: {
       'Content-Type':'application/json'
     },
@@ -79,6 +79,7 @@ export const updateFoamStatus = (image, id) => async(dispatch) => {
 
   const updatedImageData = await res.json();
   dispatch(updateTheFoam(updatedImageData));
+  // console.log('updatedImageData: ', updatedImageData)
   return updatedImageData;
 }
 

@@ -47,19 +47,22 @@ def paginated_images(pageNumber):
 #     return {"message" : "Unable to update foam status."}
 
 
-@images_routes.route('/<int:id>/update', methods=['GET', 'PATCH'])
+@images_routes.route('/<int:id>/update', methods=['GET', 'PUT'])
 def update_image_status(id):
   form = FoamStatusForm()
   # form['csrf_token'.data] = request.cookies('csrf_token')
   image = Image.query.get(id)
   print('image here: ===> ',image.to_dict())
-  if form.validate_on_submit():
-    image.url = form.data['url']
+  # if form.validate_on_submit():
+  if image:
+    # image.url = form.data['url']
     image.foamStatus = form.data['foamStatus']
-    image.lastModified = datetime.now()
+    # image.lastModified = datetime.now()
+    image.lastModified = form.data['lastModified']
+    # form.populate_obj(image)
 
     db.session.commit()
-    print('image to update: --------> ', image.to_dict())
+    # print('image to update: --------> ', image.to_dict())
     return image.to_dict()
   else:
     return {"message": "Unable to update foam status."}
