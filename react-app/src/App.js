@@ -15,12 +15,12 @@ function App() {
           <h1>Foam</h1>
           <MainPage />
         </Route>
-        <Route path='/images/:pageNumber' exact={true} >
+        <Route path='/images/all/:pageNumber' exact={true} >
           <h1>Foam</h1>
           <p>Please view the images below and categorize foam presence.</p>
           <ImagesCategorizePage />
         </Route>
-        <Route path='/images/:id/update' exact={true}>
+        <Route path='/images/all/:id/update' exact={true}>
           <EditFoamStatus />
         </Route>
       </Switch>

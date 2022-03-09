@@ -23,7 +23,7 @@ function MainPage() {
         </div>
       </div>
       <p>Please select the Start button below to begin.</p>
-      <NavLink to={`/images/1`} exact={true} className='startButton-Main'>Start</NavLink>
+      <NavLink to={`/images/all/1`} exact={true} className='startButton-Main'>Start</NavLink>
     </div>
   )
 }

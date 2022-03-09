@@ -7,10 +7,16 @@ from flask_login import current_user
 
 images_routes = Blueprint('image', __name__)
 
-# @images_routes.route('/', methods=['GET'])
-# def get_images():
+@images_routes.route('/<int:id>', methods=['GET'])
+def get_one_image():
+  image = Image.query.get(id)
+  if image:
+    image = image.to_dict()
+    return image
+  else:
+    return {'message':'Image not found.'}
   
-@images_routes.route('/<int:pageNumber>', methods=['GET'])
+@images_routes.route('/all/<int:pageNumber>', methods=['GET'])
 def paginated_images(pageNumber):
   IMAGES_PER_PAGE = 18
   images = Image.query.paginate(pageNumber, IMAGES_PER_PAGE, False)

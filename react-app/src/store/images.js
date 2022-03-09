@@ -1,9 +1,15 @@
 const GET_IMAGES = 'images/GET_IMAGES';
+const GET_ONE_IMAGE = 'images/GET_ONE_IMAGE';
 const UPDATE_FOAM_STATUS = 'images/UPDATE_FOAM_STATUS';
 
 const getTheImages = (images) => ({
   type: GET_IMAGES,
   images
+})
+
+const getAnImage = (image) => ({
+  type: GET_ONE_IMAGE,
+  image
 })
 
 const updateTheFoam = (image) => ({
@@ -17,10 +23,18 @@ const updateTheFoam = (image) => ({
 // })
 
 export const getImages = (pageNumber) => async(dispatch) => {
-  const res = await fetch(`/api/images/${pageNumber}`)
+  const res = await fetch(`/api/images/all/${pageNumber}`)
   if (res.ok) {
     const images = await res.json();
     dispatch(getTheImages(images));
+  }
+}
+
+export const getOneImage = (id) => async(dispatch) => {
+  const res = await fetch(`/api/images/${id}`)
+  if (res.ok) {
+    const image = await res.json();
+    dispatch(getAnImage(image))
   }
 }
 
@@ -79,6 +93,10 @@ const imagesReducer = (state = initial_state, action) => {
       const newState = action.images;
       return newState;
     }
+    // case GET_ONE_IMAGE : {
+    //   const newState = action.image;
+    //   return newState;
+    // }
     // case UPDATE_FOAM_STATUS : {
     //   if (!state[action.image]) {
     //     const newState = {

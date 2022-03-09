@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { updateFoamStatus } from "../store/images";
+import { getOneImage, updateFoamStatus } from "../store/images";
 
 const EditFoamStatus = ({props}) => {
   const { id } = useParams();
@@ -22,8 +22,8 @@ const EditFoamStatus = ({props}) => {
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(getImages(pageNumber))
-  }, [dispatch, pageNumber])
+    dispatch(getOneImage(id))
+  }, [dispatch, id])
 
   useEffect(() => {
     dispatch(EditFoamStatus(image, id));
