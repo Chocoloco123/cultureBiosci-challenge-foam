@@ -14,10 +14,10 @@ function ImagesCategorizePage() {
     dispatch(getImages(pageNumber))
   }, [dispatch, pageNumber])
 
-  useEffect(() => {
-    // image, pagenumber, id
-    dispatch(updateFoamStatus())
-  })
+  // useEffect(() => {
+  //   // image, pagenumber, id
+  //   dispatch(updateFoamStatus())
+  // })
 
   if (!images) return null;
 
@@ -34,7 +34,7 @@ function ImagesCategorizePage() {
       <div className="arrowBox-Div">
         {+pageNumber > 1 ?
           <div>
-            <NavLink to={`/images/${(+pageNumber - 1)}`} exact={true} className="arrows" >Back</NavLink>
+            <NavLink to={`/images/all/${(+pageNumber - 1)}`} exact={true} className="arrows" >Back</NavLink>
           </div>
           : 
           <div>
@@ -42,7 +42,7 @@ function ImagesCategorizePage() {
           </div>
         } 
         <div>
-          <NavLink to={`/images/${+pageNumber + 1}`} exact={true} className="arrows">Next</NavLink>
+          <NavLink to={`/images/all/${+pageNumber + 1}`} exact={true} className="arrows">Next</NavLink>
         </div> 
       </div>
     </>
