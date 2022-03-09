@@ -69,3 +69,17 @@ def update_image_status(id):
     return {"message": "Unable to update foam status."}
 
 
+@images_routes.route('/category/foam/<int:pageNumber>', methods=['GET'])
+def get_foam_images_paginated(pageNumber):
+  IMAGES_PER_PAGE = 18
+  images = Image.query \
+    .filter(Image.foamStatus == 'foam') \
+    .paginate(pageNumber, IMAGES_PER_PAGE, False)
+
+  # print('here!!!!!!!!')
+  if images:
+    images = dict([(image.id, image.to_dict()) for image in images.items])
+    # print(images)
+    return images
+  else:
+    return {'message': 'No images found.'}
