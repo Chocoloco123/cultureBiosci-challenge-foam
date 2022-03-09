@@ -93,10 +93,10 @@ const imagesReducer = (state = initial_state, action) => {
       const newState = action.images;
       return newState;
     }
-    // case GET_ONE_IMAGE : {
-    //   const newState = action.image;
-    //   return newState;
-    // }
+    case GET_ONE_IMAGE : {
+      const newState = action.image;
+      return newState;
+    }
     // case UPDATE_FOAM_STATUS : {
     //   if (!state[action.image]) {
     //     const newState = {
