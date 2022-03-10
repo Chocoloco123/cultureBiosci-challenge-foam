@@ -24,6 +24,12 @@ function ImagesCategorizePage() {
   
   return (
     <>
+      <div>
+        <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
+      </div>
+      <div>
+        <NavLink to={`/images/categories/foam/1`}>Foam</NavLink>
+      </div>
       <div className='ImageCard-Div-Cont'>
       {Object.values(images).map(image => 
         <div key={image.id}>

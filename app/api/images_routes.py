@@ -20,7 +20,10 @@ def get_one_image(id):
 @images_routes.route('/all/<int:pageNumber>', methods=['GET'])
 def paginated_images(pageNumber):
   IMAGES_PER_PAGE = 18
-  images = Image.query.paginate(pageNumber, IMAGES_PER_PAGE, False)
+  images = Image.query \
+    .paginate(pageNumber, IMAGES_PER_PAGE, False) \
+    # .order_by(images.id)
+    # .filter(Image.id)
 
   # print('here!!!!!!!!')
   if images:
@@ -69,11 +72,11 @@ def update_image_status(id):
     return {"message": "Unable to update foam status."}
 
 
-@images_routes.route('/category/foam/<int:pageNumber>', methods=['GET'])
+@images_routes.route('/categories/foam/<int:pageNumber>', methods=['GET'])
 def get_foam_images_paginated(pageNumber):
   IMAGES_PER_PAGE = 18
   images = Image.query \
-    .filter(Image.foamStatus == 'foam') \
+    .filter(Image.foamStatus == 'Foam') \
     .paginate(pageNumber, IMAGES_PER_PAGE, False)
 
   # print('here!!!!!!!!')

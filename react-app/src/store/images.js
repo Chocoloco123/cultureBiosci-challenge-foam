@@ -46,7 +46,7 @@ export const getOneImage = (id) => async(dispatch) => {
 }
 
 export const getFoamImages = (pageNumber) => async(dispatch) => {
-  const res = await fetch(`/api/images/category/foam/${pageNumber}`)
+  const res = await fetch(`/api/images/categories/foam/${pageNumber}`)
   if (res.ok) {
     const images = await res.json();
     dispatch(getTheFoamImages(images))
@@ -96,9 +96,6 @@ export const updateFoamStatus = (image, id) => async(dispatch) => {
   // console.log('updatedImageData: ', updatedImageData)
   return updatedImageData;
 }
-
-
-
 
 const initial_state = {};
 
