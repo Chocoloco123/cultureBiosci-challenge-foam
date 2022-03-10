@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getFoamImages, getNoFoamImages } from "../../store/images";
 import ImageCard from "../ImageCard";
+import './CategoriesStyling.css'
 
 function FoamCategoriesPage() {
   const { pageNumber } = useParams();
@@ -30,6 +31,17 @@ function FoamCategoriesPage() {
       </div>
       <div>
         <NavLink to={`/images/all/1`} exact={true} className="arrows" >Main</NavLink>
+      </div>
+      <div className="Categories-Div">
+        <div className="Category-NavLink-Div">
+          <NavLink disabled to={`/images/categories/foam/1`} className="Category-NavLink Foam-NavLink">Foam</NavLink>
+        </div>
+        <div className="Category-NavLink-Div">
+          <NavLink to={`/images/categories/no_foam/1`} className="Category-NavLink No-Foam-NavLink">No Foam</NavLink>
+        </div>
+        <div className="Category-NavLink-Div">
+          <NavLink to={`/images/categories/uncategorized/1`} className="Category-NavLink">Uncategorized</NavLink>
+        </div>
       </div>
       <div className='ImageCard-Div-Cont'>
       {Object.values(images).map(image => 

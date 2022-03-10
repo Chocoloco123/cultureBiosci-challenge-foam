@@ -27,15 +27,15 @@ function ImagesCategorizePage() {
       <div>
         <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
       </div>
-      <div>
-        <div>
-          <NavLink to={`/images/categories/foam/1`}>Foam</NavLink>
+      <div className="Categories-Div">
+        <div className="Category-NavLink-Div">
+          <NavLink disabled to={`/images/categories/foam/1`} className="Category-NavLink">Foam</NavLink>
         </div>
-        <div>
-        <NavLink to={`/images/categories/no_foam/1`}>No Foam</NavLink>
+        <div className="Category-NavLink-Div">
+          <NavLink to={`/images/categories/no_foam/1`} className="Category-NavLink">No Foam</NavLink>
         </div>
-        <div>
-        <NavLink to={`/images/categories/uncategorized/1`}>Uncategorized</NavLink>
+        <div className="Category-NavLink-Div">
+          <NavLink to={`/images/categories/uncategorized/1`} className="Category-NavLink">Uncategorized</NavLink>
         </div>
       </div>
       <div className='ImageCard-Div-Cont'>
