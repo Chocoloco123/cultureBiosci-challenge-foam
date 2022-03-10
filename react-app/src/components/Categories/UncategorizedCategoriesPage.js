@@ -1,10 +1,10 @@
 import { NavLink, useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getFoamImages, getNoFoamImages } from "../../store/images";
+import { getUncategorizedImages } from "../../store/images";
 import ImageCard from "../ImageCard";
 
-function NoFoamCategoriesPage() {
+function UncategorizedCategoriesPage() {
   const { pageNumber } = useParams();
   const dispatch = useDispatch();
   const images = useSelector(state => state?.images);
@@ -13,7 +13,7 @@ function NoFoamCategoriesPage() {
 
 
   useEffect(() => {
-    dispatch(getNoFoamImages(pageNumber))
+    dispatch(getUncategorizedImages(pageNumber))
   }, [dispatch, pageNumber])
 
 
@@ -21,7 +21,7 @@ function NoFoamCategoriesPage() {
 
   return (
     <div>
-      <h3>Category: No Foam</h3>
+      <h3>Category: Uncategorized</h3>
       <div>
         <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
       </div>
@@ -38,7 +38,7 @@ function NoFoamCategoriesPage() {
       <div className="arrowBox-Div">
         {+pageNumber > 1 ?
           <div>
-            <NavLink to={`/images/categories/no_foam/${(+pageNumber - 1)}`} exact={true} className="arrows" >Back</NavLink>
+            <NavLink to={`/images/categories/uncategorized/${(+pageNumber - 1)}`} exact={true} className="arrows" >Back</NavLink>
           </div>
           : 
           <div>
@@ -47,7 +47,7 @@ function NoFoamCategoriesPage() {
         } 
         {imagesArr.length >= 18 ?
           <div>
-            <NavLink to={`/images/categories/no_foam/${+pageNumber + 1}`} exact={true} className="arrows">Next</NavLink>
+            <NavLink to={`/images/categories/uncategorized/${+pageNumber + 1}`} exact={true} className="arrows">Next</NavLink>
           </div> 
           : null
         }
@@ -58,4 +58,4 @@ function NoFoamCategoriesPage() {
 
 }
 
-export default NoFoamCategoriesPage;
+export default UncategorizedCategoriesPage;

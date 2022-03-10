@@ -33,7 +33,10 @@ function ImagesCategorizePage() {
         </div>
         <div>
         <NavLink to={`/images/categories/no_foam/1`}>No Foam</NavLink>
-      </div>
+        </div>
+        <div>
+        <NavLink to={`/images/categories/uncategorized/1`}>Uncategorized</NavLink>
+        </div>
       </div>
       <div className='ImageCard-Div-Cont'>
       {Object.values(images).map(image => 

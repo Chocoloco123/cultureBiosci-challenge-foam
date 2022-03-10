@@ -105,7 +105,7 @@ def get_no_foam_images_paginated(pageNumber):
 
 
 @images_routes.route('/categories/uncategorized/<int:pageNumber>', methods=['GET'])
-def get_no_foam_images_paginated(pageNumber):
+def get_uncategorized_images_paginated(pageNumber):
   IMAGES_PER_PAGE = 18
   images = Image.query \
       .filter(Image.foamStatus == 'Uncategorized') \

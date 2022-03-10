@@ -31,6 +31,11 @@ const getTheNoFoamImages = (images) => ({
   images
 })
 
+const getTheUncategorizedImages = (images) => ({
+  type: GET_UNCATEGORIZED_IMAGES,
+  images
+})
+
 
 
 // const updateTheFoam = (image) => ({
@@ -67,6 +72,14 @@ export const getNoFoamImages = (pageNumber) => async(dispatch) => {
   if (res.ok) {
     const images = await res.json();
     dispatch(getTheNoFoamImages(images))
+  }
+}
+
+export const getUncategorizedImages = (pageNumber) => async(dispatch) => {
+  const res = await fetch(`/api/images/categories/uncategorized/${pageNumber}`)
+  if (res.ok) {
+    const images = await res.json();
+    dispatch(getTheUncategorizedImages(images))
   }
 }
 // export const updateFoamStatus = (image,pageNumber, id) => async(dispatch) => {
@@ -131,6 +144,10 @@ const imagesReducer = (state = initial_state, action) => {
       return newState;
     }
     case GET_NO_FOAM_IMAGES : {
+      const newState = action.images;
+      return newState;
+    }
+    case GET_UNCATEGORIZED_IMAGES : {
       const newState = action.images;
       return newState;
     }

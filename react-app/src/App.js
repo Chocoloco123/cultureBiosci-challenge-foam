@@ -6,6 +6,7 @@ import ImagesCategorizePage from './components/ImagesCategorizePage';
 import EditFoamStatus from './components/EditFoamStatus';
 import FoamCategoriesPage from './components/Categories/FoamCategoriesPage';
 import NoFoamCategoriesPage from './components/Categories/NoFoamCategoriesPage';
+import UncategorizedCategoriesPage from './components/Categories/UncategorizedCategoriesPage';
 
 
 function App() {
@@ -26,6 +27,11 @@ function App() {
           <h1>Foam App</h1>
           <p>Please view the images below and categorize foam presence.</p>
           <NoFoamCategoriesPage />
+        </Route>
+        <Route path='/images/categories/uncategorized/:pageNumber' exact={true}>
+          <h1>Foam App</h1>
+          <p>Please view the images below and categorize foam presence.</p>
+          <UncategorizedCategoriesPage />
         </Route>
         <Route path='/images/all/:pageNumber' exact={true} >
           <h1>Foam App</h1>
