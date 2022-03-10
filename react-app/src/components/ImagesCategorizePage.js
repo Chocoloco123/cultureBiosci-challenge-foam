@@ -28,11 +28,16 @@ function ImagesCategorizePage() {
         <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
       </div>
       <div>
-        <NavLink to={`/images/categories/foam/1`}>Foam</NavLink>
+        <div>
+          <NavLink to={`/images/categories/foam/1`}>Foam</NavLink>
+        </div>
+        <div>
+        <NavLink to={`/images/categories/no_foam/1`}>No Foam</NavLink>
+      </div>
       </div>
       <div className='ImageCard-Div-Cont'>
       {Object.values(images).map(image => 
-        <div key={image.id}>
+        <div key={`${image.id}-ImageCard`}>
           <ImageCard key={image?.url} image={image} />
         </div>
       )}

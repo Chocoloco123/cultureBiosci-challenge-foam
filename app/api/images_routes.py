@@ -86,3 +86,35 @@ def get_foam_images_paginated(pageNumber):
     return images
   else:
     return {'message': 'No images found.'}
+
+
+@images_routes.route('/categories/no_foam/<int:pageNumber>', methods=['GET'])
+def get_no_foam_images_paginated(pageNumber):
+  IMAGES_PER_PAGE = 18
+  images = Image.query \
+      .filter(Image.foamStatus == 'No Foam') \
+      .paginate(pageNumber, IMAGES_PER_PAGE, False)
+
+  # print('here!!!!!!!!')
+  if images:
+    images = dict([(image.id, image.to_dict()) for image in images.items])
+    # print(images)
+    return images
+  else:
+    return {'message': 'No images found.'}
+
+
+@images_routes.route('/categories/uncategorized/<int:pageNumber>', methods=['GET'])
+def get_no_foam_images_paginated(pageNumber):
+  IMAGES_PER_PAGE = 18
+  images = Image.query \
+      .filter(Image.foamStatus == 'Uncategorized') \
+      .paginate(pageNumber, IMAGES_PER_PAGE, False)
+
+  # print('here!!!!!!!!')
+  if images:
+    images = dict([(image.id, image.to_dict()) for image in images.items])
+    # print(images)
+    return images
+  else:
+    return {'message': 'No images found.'}

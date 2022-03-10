@@ -4,7 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MainPage from './components/mainPage';
 import ImagesCategorizePage from './components/ImagesCategorizePage';
 import EditFoamStatus from './components/EditFoamStatus';
-import CategoriesPage from './components/CategoriesPage';
+import FoamCategoriesPage from './components/Categories/FoamCategoriesPage';
+import NoFoamCategoriesPage from './components/Categories/NoFoamCategoriesPage';
 
 
 function App() {
@@ -13,14 +14,21 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path='/' exact={true} >
-          <h1>Foam</h1>
+          <h1>Foam App</h1>
           <MainPage />
         </Route>
         <Route path='/images/categories/foam/:pageNumber' exact={true}>
-          <CategoriesPage />
+          <h1>Foam App</h1>
+          <p>Please view the images below and categorize foam presence.</p>
+          <FoamCategoriesPage />
+        </Route>
+        <Route path='/images/categories/no_foam/:pageNumber' exact={true}>
+          <h1>Foam App</h1>
+          <p>Please view the images below and categorize foam presence.</p>
+          <NoFoamCategoriesPage />
         </Route>
         <Route path='/images/all/:pageNumber' exact={true} >
-          <h1>Foam</h1>
+          <h1>Foam App</h1>
           <p>Please view the images below and categorize foam presence.</p>
           <ImagesCategorizePage />
         </Route>
