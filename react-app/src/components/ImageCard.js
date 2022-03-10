@@ -50,7 +50,7 @@ function ImageCard({ image }) {
 
   return (
     <div className='imageCard-Div-Cont-Ind'>
-      <NavLink to={`${image?.id}/update`}>
+      <NavLink to={`/${image?.id}/update`}>
         {image?.id}
         <img src={imageUrl} alt='reactor img' className="imageCard-img"></img>
       </NavLink>

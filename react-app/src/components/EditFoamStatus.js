@@ -70,6 +70,7 @@ const EditFoamStatus = ({props}) => {
         </h3>
         <img src={image?.url} alt='reactor img' className="imageCard-img"></img>
       </div>
+      <p>Foam Status: {image?.foamStatus}</p>
       <form onSubmit={handleSelect}>
         <select required value={foamStatus} onChange={(e) => setFoamStatus(e.target.value)}>
           <option value="Uncategorized">Select Status</option>

@@ -38,7 +38,10 @@ function App() {
           <p>Please view the images below and categorize foam presence.</p>
           <ImagesCategorizePage />
         </Route>
-        <Route path='/images/all/:id/update' exact={true}>
+        {/* <Route path='/images/all/:id/update' exact={true}>
+          <EditFoamStatus />
+        </Route> */}
+        <Route path='/:id/update' exact={true}>
           <EditFoamStatus />
         </Route>
         
