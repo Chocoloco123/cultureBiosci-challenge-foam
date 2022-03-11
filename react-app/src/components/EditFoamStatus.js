@@ -56,8 +56,9 @@ const EditFoamStatus = ({props}) => {
 
     if (newImage) {
       window.history.back();
+      window.scrollTo(0,0)
     } else if (!history.back()) {
-      history.push(`/images/1`)
+      history.push(`/images/1`);
     }
     // if (newImage) {
     //   history.push(`/images/all/1`)
