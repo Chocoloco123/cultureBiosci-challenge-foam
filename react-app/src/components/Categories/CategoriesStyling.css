@@ -1,0 +1,49 @@
+.Categories-Div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-left: 0px;
+  margin-top: 10px;
+}
+
+.Category-NavLink-Div {
+  margin: 5px;
+}
+
+.Category-NavLink {
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.Category-NavLink:hover {
+  background-color: rgb(255, 233, 160);
+}
+
+.Category-NavLink:visited {
+  color: #551a8b;
+}
+
+.Foam-NavLink {
+  background-color: rgb(255, 233, 160);
+}
+
+.Foam-NavLink:visited {
+  background-color: rgb(255, 233, 160);
+  color: #551a8b;
+}
+
+.all-images-category {
+  margin-right: 0px;
+  margin-left: 5px;
+}
+
+.all-images-category:hover {
+  text-decoration: none;
+}
+
+.instructions-NavLink {
+  font-weight: bold;
+}

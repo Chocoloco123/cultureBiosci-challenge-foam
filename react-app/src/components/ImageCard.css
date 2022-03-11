@@ -1,7 +1,9 @@
 
 .imageCard-img {
+  display: flex;
   height: 250px;
   margin: 20px;
+  text-decoration: none;
 }
 
 .imageCard-Div-Cont-Ind {
@@ -22,4 +24,29 @@
   /* display:flex; */
   /* width: 50px; */
   margin: 10px;
+}
+
+.imageId-Card-NavLink {
+  text-decoration: none;
+  
+}
+
+.imageId-Card-NavLink:hover {
+  background-color: rgb(254, 245, 214);
+  transition-duration: 0.5s;
+}
+
+.imageId-Card {
+  margin-left: 20px;
+  color: black;
+}
+
+.ImageCard-Headers-Div {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.imageCard-p {
+  margin-left: 20px;
 }

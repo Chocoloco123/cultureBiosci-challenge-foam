@@ -1,6 +1,10 @@
 const GET_IMAGES = 'images/GET_IMAGES';
 const GET_ONE_IMAGE = 'images/GET_ONE_IMAGE';
 const UPDATE_FOAM_STATUS = 'images/UPDATE_FOAM_STATUS';
+const GET_FOAM_IMAGES = 'images/GET_FOAM_IMAGES';
+const GET_NO_FOAM_IMAGES = 'images/GET_NO_FOAM_IMAGES';
+const GET_UNCATEGORIZED_IMAGES = 'images/GET_UNCATEGORIZED_IMAGES';
+
 
 const getTheImages = (images) => ({
   type: GET_IMAGES,
@@ -16,6 +20,23 @@ const updateTheFoam = (image) => ({
   type: UPDATE_FOAM_STATUS,
   image
 })
+
+const getTheFoamImages = (images) => ({
+  type: GET_FOAM_IMAGES,
+  images
+})
+
+const getTheNoFoamImages = (images) => ({
+  type: GET_NO_FOAM_IMAGES,
+  images
+})
+
+const getTheUncategorizedImages = (images) => ({
+  type: GET_UNCATEGORIZED_IMAGES,
+  images
+})
+
+
 
 // const updateTheFoam = (image) => ({
 //   type: UPDATE_FOAM_STATUS,
@@ -38,6 +59,29 @@ export const getOneImage = (id) => async(dispatch) => {
   }
 }
 
+export const getFoamImages = (pageNumber) => async(dispatch) => {
+  const res = await fetch(`/api/images/categories/foam/${pageNumber}`)
+  if (res.ok) {
+    const images = await res.json();
+    dispatch(getTheFoamImages(images))
+  }
+}
+
+export const getNoFoamImages = (pageNumber) => async(dispatch) => {
+  const res = await fetch(`/api/images/categories/no_foam/${pageNumber}`)
+  if (res.ok) {
+    const images = await res.json();
+    dispatch(getTheNoFoamImages(images))
+  }
+}
+
+export const getUncategorizedImages = (pageNumber) => async(dispatch) => {
+  const res = await fetch(`/api/images/categories/uncategorized/${pageNumber}`)
+  if (res.ok) {
+    const images = await res.json();
+    dispatch(getTheUncategorizedImages(images))
+  }
+}
 // export const updateFoamStatus = (image,pageNumber, id) => async(dispatch) => {
 //   const res = await fetch(`/api/images/${pageNumber}/${id}/update`, {
 //     method: 'PUT',
@@ -83,19 +127,28 @@ export const updateFoamStatus = (image, id) => async(dispatch) => {
   return updatedImageData;
 }
 
-
-
-
 const initial_state = {};
 
 const imagesReducer = (state = initial_state, action) => {
   switch(action.type) {
     case GET_IMAGES : {
-      const newState = action.images;
+      const newState = { ...action.images };
       return newState;
     }
     case GET_ONE_IMAGE : {
       const newState = action.image;
+      return newState;
+    }
+    case GET_FOAM_IMAGES : {
+      const newState = action.images;
+      return newState;
+    }
+    case GET_NO_FOAM_IMAGES : {
+      const newState = action.images;
+      return newState;
+    }
+    case GET_UNCATEGORIZED_IMAGES : {
+      const newState = action.images;
       return newState;
     }
     // case UPDATE_FOAM_STATUS : {

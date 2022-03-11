@@ -21,7 +21,7 @@ function ImageCard({ image }) {
 
   const id = image?.id ? image?.id : null;
   
-  const imageUrl = image.url;
+  const imageUrl = image?.url;
 
   const dispatch = useDispatch();
 
@@ -50,23 +50,13 @@ function ImageCard({ image }) {
 
   return (
     <div className='imageCard-Div-Cont-Ind'>
-      <NavLink to={`${image?.id}/update`}>
-        {image?.id}
+      <NavLink to={`/${image?.id}/update`} className='imageId-Card-NavLink'>
+        <div className='ImageCard-Headers-Div'>
+          <h3 className='imageId-Card'>{image?.id}</h3>
+          <p className='imageId-Card imageCard-p'>Foam Status: {image?.foamStatus}</p>
+        </div>
         <img src={imageUrl} alt='reactor img' className="imageCard-img"></img>
       </NavLink>
-      <div className="foamBtn-Div-Class">
-        {/* <div>{foamStatus}</div> */}
-        {/* <button className="foamBtn">Foam</button>
-        <button className="foamBtn">No Foam</button> */}
-        {/* <form onSubmit={handleSelect}>
-          <select required value={foamStatus} onChange={(e) => setFoamStatus(e.target.value)}>
-            <option value="Uncategorized">Select Status</option>
-            <option value="Foam">Foam</option>
-            <option value="No Foam">No Foam</option>
-          </select>
-          <button type='submit'>Submit</button>
-        </form> */}
-      </div>
     </div>
   )
 }
