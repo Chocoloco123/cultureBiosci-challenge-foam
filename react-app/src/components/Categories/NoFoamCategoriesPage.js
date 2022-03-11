@@ -61,7 +61,7 @@ function NoFoamCategoriesPage() {
         } 
         {imagesArr.length >= 18 ?
           <div>
-            <NavLink to={`/images/categories/no_foam/${+pageNumber + 1}`} exact={true} className="arrows">Next</NavLink>
+            <NavLink to={`/images/categories/no_foam/${+pageNumber + 1}`} exact={true} onClick={window.scrollTo(0,0)} className="arrows">Next</NavLink>
           </div> 
           : null
         }
