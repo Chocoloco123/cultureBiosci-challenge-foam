@@ -1,7 +1,7 @@
 import { NavLink, useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getFoamImages, getNoFoamImages } from "../../store/images";
+import { getNoFoamImages } from "../../store/images";
 import ImageCard from "../ImageCard";
 import './CategoriesStyling.css'
 
@@ -24,7 +24,7 @@ function NoFoamCategoriesPage() {
     <div>
       <h3>Category: No Foam</h3>
       <div>
-        <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
+        <NavLink to={`/`} exact={true} className="arrows instructions-NavLink" >Instructions</NavLink>
       </div>
       
       <div className="Categories-Div">

@@ -1,7 +1,7 @@
 import { NavLink, useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getFoamImages, getNoFoamImages } from "../../store/images";
+import { getFoamImages } from "../../store/images";
 import ImageCard from "../ImageCard";
 import './CategoriesStyling.css'
 
@@ -16,10 +16,6 @@ function FoamCategoriesPage() {
     dispatch(getFoamImages(pageNumber))
   }, [dispatch, pageNumber])
 
-  // useEffect(() => {
-  //   dispatch(getNoFoamImages(pageNumber))
-  // }, [dispatch, pageNumber])
-
 
   if (!images) return null;
 
@@ -27,9 +23,8 @@ function FoamCategoriesPage() {
     <div>
       <h3>Category: Foam</h3>
       <div>
-        <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
+        <NavLink to={`/`} exact={true} className="arrows instructions-NavLink" >Instructions</NavLink>
       </div>
-      
       <div className="Categories-Div">
         <div className="Category-NavLink-Div">
           <NavLink to={`/images/all/1`} exact={true} className="arrows Category-NavLink all-images-category" >All</NavLink>
@@ -57,10 +52,10 @@ function FoamCategoriesPage() {
           <div>
             <NavLink to={`/images/categories/foam/${(+pageNumber - 1)}`} exact={true} className="arrows" >Back</NavLink>
           </div>
-          : 
-          <div>
-            <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
-          </div>
+          : null
+          // <div>
+          //   <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
+          // </div>
         } 
         {imagesArr.length > 18 ?
           <div>

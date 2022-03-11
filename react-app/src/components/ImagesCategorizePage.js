@@ -27,7 +27,7 @@ function ImagesCategorizePage() {
     <>
       <h3>All Images</h3>
       <div>
-        <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
+        <NavLink to={`/`} exact={true} className="arrows instructions-NavLink" >Instructions</NavLink>
       </div>
       <div className="Categories-Div">
         <div className="Category-NavLink-Div">
