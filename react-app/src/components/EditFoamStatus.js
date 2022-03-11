@@ -54,14 +54,14 @@ const EditFoamStatus = ({props}) => {
     // console.log('updatedImage: ',updatedImage)
     const newImage = await dispatch(updateFoamStatus(updatedImage, id))
 
-    // if (newImage) {
-    //   window.history.back();
-    // } else if (!history.back()) {
-    //   history.push(`/images/1`)
-    // }
     if (newImage) {
-      history.push(`/images/all/1`)
+      window.history.back();
+    } else if (!history.back()) {
+      history.push(`/images/1`)
     }
+    // if (newImage) {
+    //   history.push(`/images/all/1`)
+    // }
     
   }
 

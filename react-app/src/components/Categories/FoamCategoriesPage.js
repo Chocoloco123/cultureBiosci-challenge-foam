@@ -45,9 +45,10 @@ function FoamCategoriesPage() {
       </div>
       <div className='ImageCard-Div-Cont'>
       {Object.values(images).map(image => 
-        <div key={image.id}>
-          <ImageCard key={image?.url} image={image} />
-        </div>
+        images?.id ? null :
+          <div key={image.id}>
+            <ImageCard key={image?.url} image={image} />
+          </div>
       )}
       </div>
       <div className="arrowBox-Div">
