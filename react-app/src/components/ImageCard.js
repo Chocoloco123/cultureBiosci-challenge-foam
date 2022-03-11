@@ -50,23 +50,10 @@ function ImageCard({ image }) {
 
   return (
     <div className='imageCard-Div-Cont-Ind'>
-      <NavLink to={`/${image?.id}/update`}>
-        {image?.id}
+      <NavLink to={`/${image?.id}/update`} className='imageId-Card-NavLink'>
+        <h3 className='imageId-Card'>{image?.id}</h3>
         <img src={imageUrl} alt='reactor img' className="imageCard-img"></img>
       </NavLink>
-      <div className="foamBtn-Div-Class">
-        {/* <div>{foamStatus}</div> */}
-        {/* <button className="foamBtn">Foam</button>
-        <button className="foamBtn">No Foam</button> */}
-        {/* <form onSubmit={handleSelect}>
-          <select required value={foamStatus} onChange={(e) => setFoamStatus(e.target.value)}>
-            <option value="Uncategorized">Select Status</option>
-            <option value="Foam">Foam</option>
-            <option value="No Foam">No Foam</option>
-          </select>
-          <button type='submit'>Submit</button>
-        </form> */}
-      </div>
     </div>
   )
 }

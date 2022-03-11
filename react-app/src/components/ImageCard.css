@@ -1,7 +1,9 @@
 
 .imageCard-img {
+  display: flex;
   height: 250px;
   margin: 20px;
+  text-decoration: none;
 }
 
 .imageCard-Div-Cont-Ind {
@@ -22,4 +24,13 @@
   /* display:flex; */
   /* width: 50px; */
   margin: 10px;
+}
+
+.imageId-Card-NavLink {
+  text-decoration: none;
+}
+
+.imageId-Card {
+  margin-left: 20px;
+  color: black;
 }

@@ -20,9 +20,10 @@ def get_one_image(id):
 @images_routes.route('/all/<int:pageNumber>', methods=['GET'])
 def paginated_images(pageNumber):
   IMAGES_PER_PAGE = 18
-  images = Image.query \
+  images = Image.query.order_by(Image.id) \
     .paginate(pageNumber, IMAGES_PER_PAGE, False) \
-    # .order_by(images.id)
+    # .sort_by(id)
+    # .order_by(Image.id)
     # .filter(Image.id)
 
   # print('here!!!!!!!!')

@@ -62,11 +62,15 @@ const EditFoamStatus = ({props}) => {
     
   }
 
+  const handleCancel = async(e) => {
+    window.history.back();
+  }
+
   return (
     <div>
       <div>
         <h3>
-          Image Id:{image.id}
+          Image Id: {image.id}
         </h3>
         <img src={image?.url} alt='reactor img' className="imageCard-img"></img>
       </div>
