@@ -26,10 +26,10 @@ function UncategorizedCategoriesPage() {
       <div>
         <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
       </div>
-      <div>
-        <NavLink to={`/images/all/1`} exact={true} className="arrows" >Main</NavLink>
-      </div>
       <div className="Categories-Div">
+        <div className="Category-NavLink-Div">
+          <NavLink to={`/images/all/1`} exact={true} className="arrows Category-NavLink all-images-category" >All</NavLink>
+        </div>
         <div className="Category-NavLink-Div">
           <NavLink disabled to={`/images/categories/foam/1`} className="Category-NavLink">Foam</NavLink>
         </div>

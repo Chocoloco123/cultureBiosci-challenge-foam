@@ -25,12 +25,16 @@ function ImagesCategorizePage() {
   
   return (
     <>
+      <h3>All Images</h3>
       <div>
         <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
       </div>
       <div className="Categories-Div">
         <div className="Category-NavLink-Div">
-          <NavLink disabled to={`/images/categories/foam/1`} className="Category-NavLink">Foam</NavLink>
+          <NavLink to={`/images/all/1`} exact={true} className="arrows Category-NavLink all-images-category Foam-NavLink" >All</NavLink>
+        </div>
+        <div className="Category-NavLink-Div">
+          <NavLink disabled to={`/images/categories/foam/1`} className="Category-NavLink ">Foam</NavLink>
         </div>
         <div className="Category-NavLink-Div">
           <NavLink to={`/images/categories/no_foam/1`} className="Category-NavLink">No Foam</NavLink>
@@ -52,10 +56,10 @@ function ImagesCategorizePage() {
           <div>
             <NavLink to={`/images/all/${(+pageNumber - 1)}`} exact={true} className="arrows" onClick={window.scrollTo(0,0)}>Back</NavLink>
           </div>
-          : 
-          <div>
-            <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
-          </div>
+          : null
+          // <div>
+          //   <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
+          // </div>
         } 
         <div>
           <NavLink to={`/images/all/${+pageNumber + 1}`} exact={true} onClick={window.scrollTo(0,0)}className="arrows">Next</NavLink>
