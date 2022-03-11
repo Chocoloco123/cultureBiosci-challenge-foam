@@ -21,7 +21,7 @@ function ImageCard({ image }) {
 
   const id = image?.id ? image?.id : null;
   
-  const imageUrl = image.url;
+  const imageUrl = image?.url;
 
   const dispatch = useDispatch();
 

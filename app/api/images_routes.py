@@ -29,7 +29,7 @@ def paginated_images(pageNumber):
   # print('here!!!!!!!!')
   if images:
     images = dict([(image.id, image.to_dict()) for image in images.items])
-    # print(images)
+    print(images)
     return images
   else:
     return {'message' : 'No images found.'}

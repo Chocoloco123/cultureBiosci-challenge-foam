@@ -8,7 +8,8 @@ import './ImagesCategorizePage.css';
 function ImagesCategorizePage() {
   const { pageNumber } = useParams();
   const dispatch = useDispatch();
-  const images = useSelector(state => state?.images)
+  const images = useSelector(state => state?.images ? state?.images : null);
+  const imagesArr = Object?.values(images);
   
   useEffect(() => {
     dispatch(getImages(pageNumber))
@@ -39,11 +40,12 @@ function ImagesCategorizePage() {
         </div>
       </div>
       <div className='ImageCard-Div-Cont'>
-      {Object.values(images).map(image => 
-        <div key={`${image.id}-ImageCard`}>
-          <ImageCard key={image?.url} image={image} />
-        </div>
-      )}
+        {imagesArr.map(image => 
+          images?.id ? null :
+            <div key={`${image?.id}-ImageCard`}>
+              <ImageCard key={image?.url} image={image} />
+            </div>
+        )}
       </div>
       <div className="arrowBox-Div">
         {+pageNumber > 1 ?

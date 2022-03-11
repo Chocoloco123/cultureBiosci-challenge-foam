@@ -132,7 +132,7 @@ const initial_state = {};
 const imagesReducer = (state = initial_state, action) => {
   switch(action.type) {
     case GET_IMAGES : {
-      const newState = action.images;
+      const newState = { ...action.images };
       return newState;
     }
     case GET_ONE_IMAGE : {

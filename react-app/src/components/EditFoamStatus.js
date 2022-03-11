@@ -54,10 +54,13 @@ const EditFoamStatus = ({props}) => {
     // console.log('updatedImage: ',updatedImage)
     const newImage = await dispatch(updateFoamStatus(updatedImage, id))
 
+    // if (newImage) {
+    //   window.history.back();
+    // } else if (!history.back()) {
+    //   history.push(`/images/1`)
+    // }
     if (newImage) {
-      window.history.back();
-    } else if (!history.back()) {
-      history.push(`/images/1`)
+      history.push(`/images/all/1`)
     }
     
   }
@@ -70,14 +73,15 @@ const EditFoamStatus = ({props}) => {
     <div>
       <div>
         <h3>
-          Image Id: {image.id}
+          Image Id: {image?.id}
         </h3>
         <img src={image?.url} alt='reactor img' className="imageCard-img"></img>
       </div>
       <p>Foam Status: {image?.foamStatus}</p>
       <form onSubmit={handleSelect}>
-        <select required value={foamStatus} onChange={(e) => setFoamStatus(e.target.value)}>
-          <option value="Uncategorized">Select Status</option>
+        {/* <select required value={foamStatus} onChange={(e) => setFoamStatus(e.target.value)}> */}
+        <select onChange={(e) => setFoamStatus(e.target.value)}>
+          <option selected="true" disabled>Select Status</option>
           <option value="Foam">Foam</option>
           <option value="No Foam">No Foam</option>
         </select>
