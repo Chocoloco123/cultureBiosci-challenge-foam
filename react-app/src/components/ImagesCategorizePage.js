@@ -54,7 +54,7 @@ function ImagesCategorizePage() {
       <div className="arrowBox-Div">
         {+pageNumber > 1 ?
           <div>
-            <NavLink to={`/images/all/${(+pageNumber - 1)}`} exact={true} className="arrows" onClick={window.scrollTo(0,0)}>Back</NavLink>
+            <NavLink to={`/images/all/${(+pageNumber - 1)}`} exact={true} className="arrows" >Back</NavLink>
           </div>
           : null
           // <div>

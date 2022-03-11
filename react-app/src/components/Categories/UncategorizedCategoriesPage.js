@@ -53,10 +53,7 @@ function UncategorizedCategoriesPage() {
           <div>
             <NavLink to={`/images/categories/uncategorized/${(+pageNumber - 1)}`} exact={true} className="arrows" >Back</NavLink>
           </div>
-          : 
-          <div>
-            <NavLink to={`/`} exact={true} className="arrows" >Home</NavLink>
-          </div>
+          : null
         } 
         {imagesArr.length >= 18 ?
           <div>
