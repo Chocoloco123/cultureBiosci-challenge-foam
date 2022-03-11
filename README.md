@@ -1,13 +1,11 @@
-# Flask React App
-
-This is the starter for the Flask React project.
+# Foam App
 
 ## Getting started
 
 1. Clone this repository (only this branch)
 
    ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
+   git clone https://github.com/Chocoloco123/cultureBiosci-challenge-foam.git
    ```
 
 2. Install dependencies
