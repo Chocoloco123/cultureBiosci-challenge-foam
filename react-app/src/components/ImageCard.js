@@ -51,7 +51,10 @@ function ImageCard({ image }) {
   return (
     <div className='imageCard-Div-Cont-Ind'>
       <NavLink to={`/${image?.id}/update`} className='imageId-Card-NavLink'>
-        <h3 className='imageId-Card'>{image?.id}</h3>
+        <div className='ImageCard-Headers-Div'>
+          <h3 className='imageId-Card'>{image?.id}</h3>
+          <p className='imageId-Card imageCard-p'>Foam Status: {image?.foamStatus}</p>
+        </div>
         <img src={imageUrl} alt='reactor img' className="imageCard-img"></img>
       </NavLink>
     </div>
