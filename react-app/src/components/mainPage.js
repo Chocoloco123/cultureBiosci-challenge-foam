@@ -8,6 +8,7 @@ function MainPage() {
 
   return(
     <div>
+      <h3>Built by Caroline Sarkki</h3>
       <p>Welcome to the foam selector! This application will be used to determine whether or not the reactor is foaming. On the following page, you'll be able to tag images based on their foam status.</p> 
       
           {/* <p>Please view the images below and categorize foam presence.</p> */}

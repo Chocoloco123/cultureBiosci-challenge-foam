@@ -116,3 +116,7 @@ of your Heroku app in the url and tag name:
    ```bash=3
    docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
    ```
+
+
+<!-- Video Link -->
+https://www.loom.com/share/c9ba615c865945fc8932ea5383f296f7
