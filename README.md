@@ -1,6 +1,7 @@
 # Foam App
 
-Built by [Caroline Sarkki](https://chocoloco123.github.io/index.html)
+### Built by [Caroline Sarkki](https://chocoloco123.github.io/index.html)
+____________
 
 Live link here: [Foam App](https://foamapp-proj.herokuapp.com/)
 
