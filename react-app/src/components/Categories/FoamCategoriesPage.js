@@ -10,7 +10,7 @@ function FoamCategoriesPage() {
   const dispatch = useDispatch();
   const images = useSelector(state => state?.images);
   const imagesArr = Object.values(images);
-  console.log(imagesArr);
+
 
   useEffect(() => {
     dispatch(getFoamImages(pageNumber))
