@@ -8,6 +8,10 @@ function MainPage() {
 
   return(
     <div>
+      <div className='credits-Div'>
+        <h3>Built by</h3>
+        <a href="https://chocoloco123.github.io/index.html" className='MyNameLink'>Caroline Sarkki</a>
+      </div>
       <p>Welcome to the foam selector! This application will be used to determine whether or not the reactor is foaming. On the following page, you'll be able to tag images based on their foam status.</p> 
       
           {/* <p>Please view the images below and categorize foam presence.</p> */}
