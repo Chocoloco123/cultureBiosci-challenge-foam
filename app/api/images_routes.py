@@ -12,7 +12,7 @@ def get_one_image(id):
   image = Image.query.get(id)
   if image:
     image = image.to_dict()
-    print('this is backend image:  ',image)
+  
     return image
   else:
     return {'message':'Image not found.'}
@@ -29,7 +29,7 @@ def paginated_images(pageNumber):
   # print('here!!!!!!!!')
   if images:
     images = dict([(image.id, image.to_dict()) for image in images.items])
-    print(images)
+    
     return images
   else:
     return {'message' : 'No images found.'}
@@ -56,9 +56,7 @@ def update_image_status(id):
   form = FoamStatusForm()
   # form['csrf_token'.data] = request.cookies('csrf_token')
   image = Image.query.get(id)
-  print('image here: ===> ',image.to_dict())
-  # if form.validate_on_submit(): 
-  # ! this validation is causing some kind of error
+  
   if image:
     # image.url = form.data['url']
     image.foamStatus = form.data['foamStatus']
